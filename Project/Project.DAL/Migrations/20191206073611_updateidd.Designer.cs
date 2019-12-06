@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project.DAL.EF;
 
 namespace Project.DAL.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20191206073611_updateidd")]
+    partial class updateidd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -233,15 +235,12 @@ namespace Project.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("userid")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("commentid");
-
-                    b.HasAlternateKey("userid");
 
                     b.ToTable("Comments");
                 });
@@ -282,8 +281,6 @@ namespace Project.DAL.Migrations
 
                     b.HasKey("ProgramId");
 
-                    b.HasAlternateKey("radioid");
-
                     b.ToTable("Prohrams");
                 });
 
@@ -322,14 +319,9 @@ namespace Project.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("userid")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RatingId");
-
-                    b.HasAlternateKey("stationid");
-
-                    b.HasAlternateKey("userid");
 
                     b.ToTable("Ratings");
                 });

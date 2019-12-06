@@ -32,7 +32,6 @@ namespace Project.DAL.EF
             string adminEmail = "admin@mail.ru";
             string adminPassword = "123456";*/
 
-            // добавляем роли
            /* Role adminRole = new Role { Id = 1, Name = adminRoleName };
             Role userRole = new Role { Id = 2, Name = userRoleName };
             User adminUser = new User { Id = "1", Email = adminEmail, Password = adminPassword, RoleId = adminRole.Id };
@@ -43,8 +42,21 @@ namespace Project.DAL.EF
             builder.Entity<Radio>().HasKey(i => i.RadioId);
             builder.Entity<User>().HasKey(i => i.Id);
             builder.Entity<Rating>().HasKey(i => i.RatingId);
+         //   builder.Entity<Rating>().HasAlternateKey(i => i.stationid);
+         //    builder.Entity<Rating>().HasAlternateKey(i => i.userid);
             builder.Entity<Prohram>().HasKey(i => i.ProgramId);
+         //   builder.Entity<Prohram>().HasAlternateKey(i => i.radioid);
             builder.Entity<Comment>().HasKey(i => i.commentid);
+         //  builder.Entity<Comment>().HasAlternateKey(i => i.userid);
+
+            /*builder.Entity<Prohram>()
+            .HasOne(p => p.radioid)
+            .WithMany(b => b.Prohrams)
+            .HasForeignKey(p => p.radioid)
+            .HasConstraintName("ForeignKey_Radio_Prohrams");*/
+
+            // builder.Entity<Favorite>().HasAlternateKey(i => i.stationid);
+            // builder.Entity<Favorite>().HasAlternateKey(i => i.userid);
             builder.Entity<Favorite>().HasNoKey();
 
             builder.Entity<User>().Property(a => a.UserName).HasMaxLength(30);

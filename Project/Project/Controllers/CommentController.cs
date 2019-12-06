@@ -17,9 +17,9 @@ namespace Project.Controllers
             db = context;
             if (!db.Comments.Any())
             {
-                db.Comments.Add(new Comment { userid = 1, username = "admin", comment = "this is alreally cool", date = DateTime.Now });
-                db.Comments.Add(new Comment { userid = 1, username = "admin" , comment = "I`m finished this project after one week", date = DateTime.Now });
-                db.Comments.Add(new Comment { userid = 2, username  = "user", comment = "Hello! this program is`nt finish!", date = DateTime.Now });
+                db.Comments.Add(new Comment { userid = "1", username = "admin", comment = "this is alreally cool", date = DateTime.Now });
+                db.Comments.Add(new Comment { userid = "1", username = "admin" , comment = "I`m finished this project after one week", date = DateTime.Now });
+                db.Comments.Add(new Comment { userid = "2", username  = "user", comment = "Hello! this program is`nt finish!", date = DateTime.Now });
                 db.SaveChanges();
             }
         }

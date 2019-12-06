@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project.DAL.EF;
 
 namespace Project.DAL.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20191206083145_updateidsss")]
+    partial class updateidsss
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -220,28 +222,23 @@ namespace Project.DAL.Migrations
 
             modelBuilder.Entity("Project.DAL.Entities.Comment", b =>
                 {
-                    b.Property<int>("commentid")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("userid")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("comment")
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
+                    b.Property<int>("commentid")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("date")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("userid")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("username")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("commentid");
-
-                    b.HasAlternateKey("userid");
+                    b.HasKey("userid");
 
                     b.ToTable("Comments");
                 });
@@ -259,7 +256,7 @@ namespace Project.DAL.Migrations
 
             modelBuilder.Entity("Project.DAL.Entities.Prohram", b =>
                 {
-                    b.Property<int>("ProgramId")
+                    b.Property<int>("radioid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -277,12 +274,10 @@ namespace Project.DAL.Migrations
                     b.Property<string>("Period")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("radioid")
+                    b.Property<int>("ProgramId")
                         .HasColumnType("int");
 
-                    b.HasKey("ProgramId");
-
-                    b.HasAlternateKey("radioid");
+                    b.HasKey("radioid");
 
                     b.ToTable("Prohrams");
                 });
@@ -322,14 +317,9 @@ namespace Project.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("userid")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RatingId");
-
-                    b.HasAlternateKey("stationid");
-
-                    b.HasAlternateKey("userid");
 
                     b.ToTable("Ratings");
                 });

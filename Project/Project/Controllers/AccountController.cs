@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
     public class AccountController : Controller
     {
@@ -21,12 +20,12 @@ namespace Project.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        [HttpGet("api/register")]
+        [HttpGet("api/registerg")]
         public IActionResult Register()
         {
             return View();
         }
-        [HttpPost("api/register")]
+        [HttpPost("api/registerp")]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -49,13 +48,13 @@ namespace Project.Controllers
             return View(model);
         }
 
-        [HttpGet("api/login")]
+        [HttpGet("api/loging")]
         public IActionResult Login(string returnUrl = null)
         {
             return View(new LoginViewModel { ReturnUrl = returnUrl });
         }
 
-        [HttpPost("api/login")]
+        [HttpPost("api/loginp")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {

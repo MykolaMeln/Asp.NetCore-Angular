@@ -17,7 +17,7 @@ namespace Project.Controllers
             db = context;
             if (!db.Radio_Stations.Any())
             {
-                db.Radio_Stations.Add(new Radio { Name="Radiopepper", Frequency = 120, Rating = 20 });
+                db.Radio_Stations.Add(new Radio { Name = "Radiopepper", Frequency = 120, Rating = 20 });
                 db.Radio_Stations.Add(new Radio { Name = "Bukovyna", Frequency = 80, Rating = 15 });
                 db.Radio_Stations.Add(new Radio { Name = "Starradio", Frequency = 89, Rating = 25 });
                 db.SaveChanges();
