@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace Project.Controllers
 {
+    [ApiController]
     [Route("api/prohrams")]
     public class ProhramController : Controller
     {

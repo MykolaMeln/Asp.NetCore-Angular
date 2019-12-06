@@ -36,23 +36,24 @@ namespace Project
            
             services.AddControllers();
 
-         /*   services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
                     options.LoginPath = new PathString("/Account/Login");
                     options.AccessDeniedPath = new PathString("/Account/Login");
-                });*/
+                });
 
-            /*services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Project", Version = "v1" });
-            });*/
+            });
 
-          /*  services.AddSwaggerGen(config => config.SwaggerDoc("v1", new OpenApiInfo{ Title = "API", Description = "Description", Version = "v1" }));*/
+         //   services.AddSwaggerGen(config => config.SwaggerDoc("v1", new OpenApiInfo{ Title = "API", Description = "Description", Version = "v1" }));
             services.AddCors();
             services.AddRouting();
-            services.AddMvc();
-           // MvcOptions.EnableEndpointRouting = false;
+           // services.AddMvc();
+            services.AddControllersWithViews();
+            // MvcOptions.EnableEndpointRouting = false;
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -77,8 +78,11 @@ namespace Project
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+              //  endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action-Index}/{id?}");
             });
             /*app.UseMvc(routes =>
             {
@@ -89,14 +93,14 @@ namespace Project
             /*  routes.MapRoute(
               name: "default",
               template: "{controller=Home}/{action=Index}/{id?}");*/
-            /* app.UseSwagger();
+      //       app.UseSwagger();
          app.UseSwaggerUI(c =>
          {
             // string swaggerJsonBasePath = string.IsNullOrWhiteSpace(c.RoutePrefix) ? "." : "..";
            //  c.SwaggerEndpoint($"{swaggerJsonBasePath}/swagger/v1/swagger.json", "My API");
             c.RoutePrefix = "";
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "Project");
-         });*/
+         });
 
 
         }
