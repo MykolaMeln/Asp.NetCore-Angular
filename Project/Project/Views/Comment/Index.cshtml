@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Project.DAL.Entities.Comment>
+@{
+    ViewBag.Title = "List of Comments";
+}
+
+<a asp-action="Create">Add comment</a>
+
+<table class="table">
+    <tr><th>UserName</th><th>Comment</th><th>Date</th><th></th></tr>
+    @foreach (var comment in Model)
+    {
+        <tr>
+            <td>@comment.username</td>
+            <td>@comment.comment</td>
+            <td>@comment.date</td>
+            <td>
+                <form asp-action="Delete" asp-route-id="@comment.commentid" method="post">
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@comment.commentid">Edit</a>
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+

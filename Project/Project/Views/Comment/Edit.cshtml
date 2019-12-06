@@ -1,0 +1,25 @@
+﻿@model Project.Models.EditCommentViewModel
+@{
+    ViewBag.Title = "Edit Comment";
+}
+<form asp-action="Edit" asp-controller="Comment">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <input type="hidden" asp-for="commentid" />
+    </div>
+    <div class="form-group">
+        <label asp-for="username" class="control-label">UserName</label>
+        <input type="text" asp-for="username" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="comment" class="control-label">Comment</label>
+        <input type="text" asp-for="comment" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="date" class="control-label">date</label>
+        <input type="datetime" asp-for="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+</form>

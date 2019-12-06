@@ -1,0 +1,25 @@
+﻿@model Project.Models.EditRadioViewModel
+@{
+    ViewBag.Title = "Edit Radio";
+}
+    <form asp-action="Edit" asp-controller="Radio">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <input type="hidden" asp-for="RadioId" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Name</label>
+            <input type="text" asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Frequency" class="control-label">Frequency</label>
+            <input type="number" asp-for="Frequency" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Rating" class="control-label">Rating</label>
+            <input type="number" asp-for="Rating" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </form>

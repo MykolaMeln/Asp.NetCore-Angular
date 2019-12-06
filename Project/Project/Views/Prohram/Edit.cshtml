@@ -1,0 +1,33 @@
+﻿@model Project.Models.EditProhramViewModel
+@{
+    ViewBag.Title = "Edit Prohram";
+}
+    <form asp-action="Edit" asp-controller="Prohram">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <input type="hidden" asp-for="ProgramId" />
+        </div>
+        <div class="form-group">
+            <label asp-for="radioid" class="control-label">RadioId</label>
+            <input type="number" asp-for="radioid" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Name_program" class="control-label">Name_prohram</label>
+            <input type="text" asp-for="Name_program" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Period" class="control-label">Period</label>
+            <input type="number" asp-for="Period" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Hour_begin" class="control-label">Hour_begin</label>
+            <input type="text" asp-for="Hour_begin" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Hour_end" class="control-label">Hour_end</label>
+            <input type="text" asp-for="Hour_end" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </form>
